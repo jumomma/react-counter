@@ -11,17 +11,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script type="text/babel">
       class Goodmorning extends React.Component{
+
+        constructor(props){
+          super(props);
+          this.state = {
+            number: 1
+          }
+        }
+
         render() {
           return (
             <div>
-              <h1>Good morning!</h1>
+              <h1>Good morning, {this.props.name}!</h1>
+              <h2>Day: {this.state.number}</h2>
+              <h2>What day is it: {this.props.date.toLocaleDateString()}</h2>
             </div>
           );
         }
       }
 
+      const info = {
+        date: new Date(),
+        image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
+      }
+
+
       ReactDOM.render(
-        <Goodmorning />, document.getElementById('app')
+        <Goodmorning
+        name="Amurica"
+        number="1"
+        date={info.date}/>,document.getElementById('app')
+
       );
     </script>
   </body>
